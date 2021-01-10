@@ -12,7 +12,7 @@ class App extends Component {
     this.state = {
       gifs: [],
       selectedGifId: null
-    }
+    };
   }
 
   // API CALL
@@ -28,6 +28,12 @@ class App extends Component {
     });
   }
 
+  selectedGif = (id) => {
+    this.setState({
+      selectedGifId: id
+    });
+  }
+
   render() {
     return (
       <div>
@@ -38,7 +44,7 @@ class App extends Component {
           </div>
         </div>
         <div className="right-scene">
-          <GifList gifs={this.state.gifs} />
+          <GifList gifs={this.state.gifs} selectGif={this.selectGif} />
         </div>
       </div>
     );
